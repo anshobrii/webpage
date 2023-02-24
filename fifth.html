@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Transaction Animation</title>
+    <style>
+        .word {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          }
+          
+          .letter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            margin: 0 0.5rem;
+            position: relative;
+          }
+          
+          .letter img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+          }
+          
+          .letter:hover img {
+            opacity: 1;
+          }
+          
+          .b {
+            animation: moveLetter 1s ease-in-out 0s infinite alternate;
+          }
+          
+          .i {
+            animation: moveLetter 1s ease-in-out 0.1s infinite alternate;
+          }
+          
+          .h {
+            animation: moveLetter 1s ease-in-out 0.2s infinite alternate;
+          }
+          
+          .a {
+            animation: moveLetter 1s ease-in-out 0.3s infinite alternate;
+          }
+          
+          .r {
+            animation: moveLetter 1s ease-in-out 0.4s infinite alternate;
+          }
+          
+          @keyframes moveLetter {
+            from {
+              transform: translate(0, 0);
+            }
+            to {
+              transform: translate(0, 20px);
+            }
+          }
+          
+    </style>
+  </head>
+  <body>
+    <div class="word">
+        <div class="letter b">
+          <a href="#top">
+            <img src="https://via.placeholder.com/150" alt="Bihar Image">
+            <span>B</span>
+          </a>
+        </div>
+        <div class="letter i">
+          <a href="#top">
+            <img src="https://via.placeholder.com/150" alt="I Image">
+            <span>I</span>
+          </a>
+        </div>
+        <div class="letter h">
+          <a href="#top">
+            <img src="https://via.placeholder.com/150" alt="H Image">
+            <span>H</span>
+          </a>
+        </div>
+        <div class="letter a">
+          <a href="#top">
+            <img src="https://via.placeholder.com/150" alt="A Image">
+            <span>A</span>
+          </a>
+        </div>
+        <div class="letter r">
+          <a href="#top">
+            <img src="https://via.placeholder.com/150" alt="R Image">
+            <span>R</span>
+          </a>
+        </div>
+      </div>
+      
+    <script>
+        const letters = document.querySelectorAll('.letter a');
+
+        letters.forEach(letter => {
+          letter.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+        
+    </script>
+  </body>
+</html>

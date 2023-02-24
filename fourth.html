@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Transaction Animation</title>
+    <style>
+        /* Header styles */
+        .header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #333;
+          color: #fff;
+          height: 200px;
+        }
+        
+        .name-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 96px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        
+        .letter {
+          display: inline-block;
+          position: relative;
+          transition: transform 0.5s ease-in-out;
+          cursor: pointer;
+        }
+        
+        .letter::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform: scaleY(0);
+          background-color: #fff;
+          z-index: -1;
+          transition: transform 0.5s ease-in-out;
+          transform-origin: top;
+        }
+        
+        .letter:hover {
+          transform: translateY(10px);
+        }
+        
+        .letter:hover::before {
+          transform: scaleY(1);
+        }
+        
+        /* Content styles */
+        .content {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        
+        .section {
+          margin-bottom: 50px;
+        }
+        
+        .section h2 {
+          font-size: 32px;
+        }
+        
+        .section p {
+          font-size: 18px;
+          line-height: 1.5;
+          color: #666;
+        }
+        
+        /* Scrollspy styles */
+        .nav-link {
+          position: fixed;
+          top: 50%;
+          right: 30px;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: #333;
+          color: #fff;
+          border-radius: 50%;
+          font-size: 24px;
+          text-decoration: none;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease-in-out;
+        }
+        
+        .nav-link.active {
+          opacity: 1;
+          visibility: visible;
+        }
+        
+        .nav-link i {
+          transform: rotate(-90deg);
+        }
+        
+        .nav-link:hover {
+          background-color: #555;
+        }
+        
+      
+    </style>
+  </head>
+  <body>
+    <div class="header">
+        <div class="name-container">
+          <a href="#b"><span class="letter">B</span></a>
+          <a href="#i"><span class="letter">I</span></a>
+          <a href="#h"><span class="letter">H</span></a>
+          <a href="#a"><span class="letter">A</span></a>
+          <a href="#r"><span class="letter">R</span></a>
+        </div>
+      </div>
+      
+      <div class="content">
+        <div class="section" id="b">
+          <h2>B Section</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada leo vel lorem dignissim, ut vestibulum sapien dictum.</p>
+        </div>
+        <div class="section" id="i">
+          <h2>I Section</h2>
+          <p>Aliquam feugiat mauris nec venenatis luctus. Vestibulum in luctus mi. Etiam scelerisque bibendum tellus, sit amet maximus tellus.</p>
+        </div>
+        <div class="section" id="h">
+          <h2>H Section</h2>
+          <p>Nullam imperdiet, nisi in consectetur ullamcorper, sapien nunc pulvinar metus, non iaculis elit sapien non eros. </p>
+        </div>
+        <div class="section" id="a">
+          <h2>A Section</h2>
+          <p>Vivamus ac leo lacus. Suspendisse tincidunt eros eget feugiat iaculis. Integer nec ipsum eget ante ullamcorper vestibulum.</p>
+        </div>
+        <div class="section" id="r">
+          <h2>R Section</h2>
+          <p>Maecenas auctor lacus eu nibh vehicula, ac dignissim arcu iaculis. Nullam euismod quam nec elit dignissim, at hendrerit urna gravida.</p>
+        </div>
+      </div>
+      
+
+    <script>
+      // Add active class to nav link based on section in view
+const sections = document.querySelectorAll(".section");
+
+function addActiveClass() {
+  const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+  sections.forEach((section) => {
+    if (
+      scrollPosition >= section.offsetTop &&
+      scrollPosition < section.offsetTop + section.offsetHeight
+    ) {
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach((navLink) => {
+        navLink.classList.remove("active");
+        if (navLink.getAttribute("href").substring(1) === section.id) {
+          navLink.classList.add("active");
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener("scroll", addActiveClass);
+
+// Scroll to section on nav link click
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach((navLink) => {
+  navLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const targetSection = document.querySelector(navLink.getAttribute("href"));
+    const targetPosition = targetSection.offsetTop;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+  });
+});
+
+// Show/hide nav link
+const navLink = document.querySelector(".nav-link");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    navLink.style.opacity = "1";
+    navLink.style.visibility = "visible";
+  } else {
+    navLink.style.opacity = "0";
+    navLink.style.visibility = "hidden";
+  }
+});
+
+    </script>
+  </body>
+</html>

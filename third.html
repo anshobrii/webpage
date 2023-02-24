@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Transaction Animation</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 200vh;
+      }
+
+      .letter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #333;
+      }
+
+      .letter {
+        font-size: 10rem;
+        font-weight: bold;
+        color: #fff;
+        transform: translateY(50px);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      }
+
+      .letter:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+
+      .letter:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      .letter:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+
+      .letter:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+
+      .letter:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+      .letter.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="letter-container">
+      <span class="letter">B</span>
+      <span class="letter">I</span>
+      <span class="letter">H</span>
+      <span class="letter">A</span>
+      <span class="letter">R</span>
+    </div>
+
+    <script>
+      const letters = document.querySelectorAll('.letter');
+
+      function animateLetters() {
+        letters.forEach((letter) => {
+          letter.classList.add('active');
+        });
+      }
+
+      window.addEventListener('load', () => {
+        animateLetters();
+      });
+    </script>
+  </body>
+</html>
