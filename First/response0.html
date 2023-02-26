@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Web</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .container {
+                margin: 0 auto;
+                max-width: 100%;
+              }
+              
+              .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 30px;
+              }
+              
+              .col {
+                flex-basis: 50%;
+                text-align: center;
+              }
+              
+              img {
+                width: 100%;
+                height: auto;
+                max-width: auto;
+                margin-bottom: 20px;
+              }
+              
+              h2 {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+              }
+              
+              p {
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+              }
+              
+              
+        </style>
+    </head>
+    <body>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Text Area 1</h2>
+      <p>This is the text for Text Area 1.</p>
+    </div>
+    <div class="col">
+      <img src="image1.jpg">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img src="image2.jpg">
+    </div>
+    <div class="col">
+      <h2>Text Area 2</h2>
+      <p>This is the text for Text Area 2.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Text Area 3</h2>
+      <p>This is the text for Text Area 3.</p>
+    </div>
+    <div class="col">
+      <img src="image3.jpg">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img src="image4.jpg">
+    </div>
+    <div class="col">
+      <h2>Text Area 4</h2>
+      <p>This is the text for Text Area 4.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Text Area 5</h2>
+      <p>This is the text for Text Area 5.</p>
+    </div>
+    <div class="col">
+      <img src="image5.jpg">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img src="image6.jpg">
+    </div>
+    <div class="col">
+      <h2>Text Area 6</h2>
+      <p>This is the text for Text Area 6.</p>
+    </div>
+  </div>
+</div>
+
+          
+        <script>
+            const cols = document.querySelectorAll('.col');
+
+            cols.forEach((col) => {
+              col.addEventListener('mouseenter', () => {
+                col.style.transform = 'scale(1.1)';
+              });
+              col.addEventListener('mouseleave', () => {
+                col.style.transform = 'scale(1.0)';
+              });
+            });
+            
+            
+        </script>
+    </body>
+</html>

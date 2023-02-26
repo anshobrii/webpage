@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BIHAR Letters</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 80px;
+			background-color: #1c1c1c;
+			color: #f2f2f2;
+			font-size: 2em;
+			font-weight: bold;
+		}
+
+		section {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 100vh;
+			justify-content: center;
+		}
+
+		section h1 {
+			font-size: 6em;
+			margin: 0;
+			padding: 0;
+			text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			user-select: none;
+			cursor: default;
+		}
+
+		section .note {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 100px;
+			padding: 20px;
+			max-width: 500px;
+			background-color: #f2f2f2;
+			border-radius: 20px;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1),
+						-5px -5px 15px rgba(255, 255, 255, 0.5);
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+
+		section .note h2 {
+			font-size: 2em;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+
+		section .note p {
+			font-size: 1.2em;
+			margin: 10px 0;
+			line-height: 1.5em;
+			text-align: justify;
+		}
+
+		footer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 80px;
+			background-color: #1c1c1c;
+			color: #f2f2f2;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		BIHAR Letters
+	</header>
+	<section id="bihar-section">
+		<h1>
+			<span id="letter-b" class="bihar-letter">B</span>
+			<span id="letter-i" class="bihar-letter">I</span>
+			<span id="letter-h" class="bihar-letter">H</span>
+			<span id="letter-a" class="bihar-letter">A</span>
+			<span id="letter-r" class="bihar-letter">R</span>
+		</h1>
+		<div id="notes-container">
+			<div id="note-b" class="note">
+				<h2>Bihar</h2>
+				<p>Bihar is a state in eastern India, bordering Nepal. It is divided into 38 districts and its capital city is Patna.</p>
+			</div>
+			<div id="note-i" class="note">
+				<h2>Ishan</h2>
+				<p>The letter "I" stands for Ishan, which is the direction North-East in Hindu mythology. It also represents the Indian Institute of Technology Patna, which is a prestigious educational institution in Bihar.</p>
+			</div>
+			<div id="note-h" class="note">
+				<h2>History</h2>
+				<p>The letter "H" represents the rich history of Bihar, which dates back to the ancient times of Magadha and the Maurya Empire. Bihar is also known for its contributions to the Indian independence movement, with leaders like Dr. Rajendra Prasad and Jayaprakash Narayan hailing from the state.</p>
+			</div>
+			<div id="note-a" class="note">
+				<h2>Art and Culture</h2>
+				<p>The letter "A" represents the vibrant art and culture of Bihar. The state is known for its Madhubani paintings, Chhath Puja, and folk music and dance forms like Bidesia and Jat-Jatin. Bihar is also home to ancient Buddhist and Jain temples, which attract tourists from all over the world.</p>
+			</div>
+			<div id="note-r" class="note">
+				<h2>Rivers</h2>
+				<p>The letter "R" stands for the rivers that flow through Bihar, including the Ganges, Kosi, and Gandak. These rivers have played a crucial role in the agriculture and economy of Bihar, and also hold religious significance for the people of the state.</p>
+			</div>
+		</div>
+	</section>
+	<footer>
+		Made with ❤ by [AASHUTOSH]
+	</footer>
+	<script>
+		const letters = document.querySelectorAll('.bihar-letter');
+		const notes = document.querySelectorAll('.note');
+
+		let currentNoteIndex = 0;
+
+		window.addEventListener('scroll', () => {
+			const section = document.querySelector('#bihar-section');
+			const sectionBounds = section.getBoundingClientRect();
+
+			if (sectionBounds.bottom >= 0 && sectionBounds.top <= window.innerHeight) {
+				const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+				const visibleNoteIndex = notes.length - 1 - [...notes].reverse().findIndex(note => {
+					const noteBounds = note.getBoundingClientRect();
+					return noteBounds.top <= scrollPosition;
+				});
+
+				if (visibleNoteIndex !== currentNoteIndex) {
+					notes[currentNoteIndex].style.opacity = 0;
+					currentNoteIndex = visibleNoteIndex;
+					notes[currentNoteIndex].style.opacity = 1;
+				}
+
+				let delay = 0;
+				let increment = 1;
+
+				letters.forEach((letter, index) => {
+					if (index > currentNoteIndex) {
+						letter.style.transition = `opacity 0.5s ease ${delay}s, transform 0.5s ease`;
+						letter.style.opacity = 0.5;
+						letter.style.transform = 'translateY(50px)';
+						delay += increment;
+					} else {
+						letter.style.transition = `opacity 0.5s ease ${delay}s, transform 0.5s ease`;
+						letter.style.opacity = 1;
+						letter.style.transform = 'translateY(0)';
+						delay -= increment;
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>
+

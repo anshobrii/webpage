@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+          }
+          
+          .slider-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+          }
+          
+          .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+          }
+          
+          .slide {
+            flex: 1;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            transition: transform 0.6s ease;
+          }
+          
+          .slide1 {
+            background-image: url('https://picsum.photos/id/1/1200/800');
+          }
+          
+          .slide2 {
+            background-image: url('https://picsum.photos/id/100/1200/800');
+          }
+          
+          .slide3 {
+            background-image: url('https://picsum.photos/id/200/1200/800');
+          }
+          
+          .slide4 {
+            background-image: url('https://picsum.photos/id/300/1200/800');
+          }
+          
+          .slide5 {
+            background-image: url('https://picsum.photos/id/400/1200/800');
+          }
+          
+          .text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+          }
+          
+          h1 {
+            font-size: calc(10vw + 10vh);
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            color: transparent;
+            text-shadow: 0 0 10px var(--text-shadow-color, rgba(255, 255, 255, 0.5));
+          }
+          
+          span {
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: none;
+          }
+          
+          
+          
+    </style>
+  </head>
+  <body>
+    <!-- HTML Content -->
+    <section class="slider-container">
+        <div class="slider">
+          <article class="slide slide1"></article>
+          <article class="slide slide2"></article>
+          <article class="slide slide3"></article>
+          <article class="slide slide4"></article>
+          <article class="slide slide5"></article>
+        </div>
+        <header class="text-container">
+          <h1>B<span>I</span>H<span>A</span>R</h1>
+        </header>
+      </section>
+      
+      
+    <!-- JavaScript -->
+    <script>
+        const slider = document.querySelector('.slider');
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+        
+        slider.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          slider.classList.add('active');
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+          isDragging = false;
+          slider.classList.remove('active');
+        });
+        
+        slider.addEventListener('mouseup', () => {
+          isDragging = false;
+          slider.classList.remove('active');
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          const walk = (x - startX) * 3;
+          slider.scrollLeft = scrollLeft - walk;
+        });
+        
+    </script>
+  </body>
+</html>
