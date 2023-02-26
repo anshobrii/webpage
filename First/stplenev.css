@@ -1,0 +1,86 @@
+ 
+        /* Set the header and footer to fixed position */
+        header, footer {
+          position: fixed;
+          font-weight: bold;
+		  text-align: center;
+          left: 0;
+          right: 0;
+          height: 10px;
+          background-color: #333;
+          color: #fff;
+          padding: 20px;
+        }
+        header {
+          top: auto;
+        }
+        footer {
+          bottom: 0;
+        }
+css
+Copy code
+    /* Set the content section to a fixed height and overflow scroll */
+    main {
+      height: auto;
+      overflow-y: scroll;
+    }
+    
+	h1 {
+		font-size: 4rem;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 2rem;
+		color: #0d3b66;
+		text-shadow: 2px 2px #dee2e6;
+	}
+	
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: 2rem;
+		justify-items: center;
+		align-items: center;
+	}
+	
+	.letter {
+		position: relative;
+		width: 300px;
+		padding: 1rem;
+		background-color: #ffffff;
+		box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+		transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		cursor: pointer;
+	}
+	
+	.letter:hover {
+		transform: translate(0, -10px);
+		box-shadow: 15px 15px 50px #bebebe, -15px -15px 50px #ffffff;
+	}
+	
+	.letter img {
+		display: block;
+		max-width: 100%;
+		transition: transform 0.3s ease-in-out;
+	}
+	
+	.letter:hover img {
+		transform: scale(1.1);
+	}
+	
+	.letter h2 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-top: 1rem;
+		color: #0d3b66;
+	}
+	
+	.letter p {
+		font-size: 1.2rem;
+		margin-top: 1rem;
+		color: #495057;
+		line-height: 1.5;
+		text-align: justify;
+	}
