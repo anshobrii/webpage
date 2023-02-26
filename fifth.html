@@ -1,113 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Transaction Animation</title>
-    <style>
-        .word {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-          }
-          
-          .letter {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 5rem;
-            margin: 0 0.5rem;
-            position: relative;
-          }
-          
-          .letter img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-          }
-          
-          .letter:hover img {
-            opacity: 1;
-          }
-          
-          .b {
-            animation: moveLetter 1s ease-in-out 0s infinite alternate;
-          }
-          
-          .i {
-            animation: moveLetter 1s ease-in-out 0.1s infinite alternate;
-          }
-          
-          .h {
-            animation: moveLetter 1s ease-in-out 0.2s infinite alternate;
-          }
-          
-          .a {
-            animation: moveLetter 1s ease-in-out 0.3s infinite alternate;
-          }
-          
-          .r {
-            animation: moveLetter 1s ease-in-out 0.4s infinite alternate;
-          }
-          
-          @keyframes moveLetter {
-            from {
-              transform: translate(0, 0);
-            }
-            to {
-              transform: translate(0, 20px);
-            }
-          }
-          
-    </style>
-  </head>
-  <body>
-    <div class="word">
-        <div class="letter b">
-          <a href="#top">
-            <img src="https://via.placeholder.com/150" alt="Bihar Image">
-            <span>B</span>
-          </a>
-        </div>
-        <div class="letter i">
-          <a href="#top">
-            <img src="https://via.placeholder.com/150" alt="I Image">
-            <span>I</span>
-          </a>
-        </div>
-        <div class="letter h">
-          <a href="#top">
-            <img src="https://via.placeholder.com/150" alt="H Image">
-            <span>H</span>
-          </a>
-        </div>
-        <div class="letter a">
-          <a href="#top">
-            <img src="https://via.placeholder.com/150" alt="A Image">
-            <span>A</span>
-          </a>
-        </div>
-        <div class="letter r">
-          <a href="#top">
-            <img src="https://via.placeholder.com/150" alt="R Image">
-            <span>R</span>
-          </a>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Discover Bihar</title>
+	<style>
+        
+        /* Set the header and footer to fixed position */
+        header, footer {
+          position: fixed;
+          font-weight: bold;
+		  text-align: center;
+          left: 0;
+          right: 0;
+          height: 10px;
+          background-color: #333;
+          color: #fff;
+          padding: 20px;
+        }
+        header {
+          top: auto;
+        }
+        footer {
+          bottom: 0;
+        }
+css
+Copy code
+    /* Set the content section to a fixed height and overflow scroll */
+    main {
+      height: auto;
+      overflow-y: scroll;
+    }
+    
+	h1 {
+		font-size: 4rem;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 2rem;
+		color: #0d3b66;
+		text-shadow: 2px 2px #dee2e6;
+	}
+	
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: 2rem;
+		justify-items: center;
+		align-items: center;
+	}
+	
+	.letter {
+		position: relative;
+		width: 300px;
+		padding: 1rem;
+		background-color: #ffffff;
+		box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+		transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		cursor: pointer;
+	}
+	
+	.letter:hover {
+		transform: translate(0, -10px);
+		box-shadow: 15px 15px 50px #bebebe, -15px -15px 50px #ffffff;
+	}
+	
+	.letter img {
+		display: block;
+		max-width: 100%;
+		transition: transform 0.3s ease-in-out;
+	}
+	
+	.letter:hover img {
+		transform: scale(1.1);
+	}
+	
+	.letter h2 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-top: 1rem;
+		color: #0d3b66;
+	}
+	
+	.letter p {
+		font-size: 1.2rem;
+		margin-top: 1rem;
+		color: #495057;
+		line-height: 1.5;
+		text-align: justify;
+	}
+        
+	</style>
+</head>
+<body>
+    <div class="h1">
+        <div class="name-container">
+          <span class="letter">B</span>
+          <span class="letter">I</span>
+          <span class="letter">H</span>
+          <span class="letter">A</span>
+          <span class="letter">R</span>
         </div>
       </div>
-      
-    <script>
-        const letters = document.querySelectorAll('.letter a');
-
-        letters.forEach(letter => {
-          letter.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        });
+    <main class="container">
+        <div class="letter">
+          <h1>B</h1>
+            <img src="image1.jpg" alt="Buddha statue in Bihar" height="200" weight="200">
+            <p>In Bihar, the letter <strong>"B"</strong> represents Buddha, who attained enlightenment under the Bodhi tree in Bodh Gaya. The state has many important Buddhist sites, such as the Mahabodhi Temple, Nalanda University, and Rajgir Hot Springs. The state borders Nepal on the east, and its capital is Patna. It is divided into 38 districts.</p>
         
-    </script>
-  </body>
-</html>
+        </div><br>
+        <br>
+        <div class="letter">
+          <h1>I</h1>
+            <img src="image2.jpg" alt="Ruins of Vikramshila University">
+            <p>The letter "I" stands for Ishan, which is the direction North-East in Hindu mythology represents the Indian Institute of Technology Patna, one of the country's most prestigious educational institutions. Bihar is one of the earliest inhabited places in the world and was once home to the ancient Indus Valley Civilization. </p>
+        
+        </div>
+        <div class="letter">
+          <h1>H</h1>
+            <img src="image3.jpg" alt="Mahabodhi Temple complex in Bodh Gaya">
+            <p>Symbolically, the letter <strong>"H"</strong> represents the rich history of state. Dating back to ancient times in Magadha and the Maurya Empire. It is also well known for its contributions to the Indian independence movement, including those of Dr. Rajendra Prasad and Jayaprakash Narayan. As well as numerous important Hindu and Jain sites, Bihar also boasts the Mahabodhi Temple complex at Bodh Gaya, a UNESCO World Heritage Site.</p>
+        
+        </div>
+        <div class="letter">
+          <h1>A</h1>
+            <img src="image4.jpg" alt="Bihar State Museum in Patna">
+            <p>The letter <strong>'A'</strong> symbolizes the state's abundant agricultural economy, where the sweetest fruits and freshest vegetables flourish, and cows graze in the vast fields. But <strong>"A"</strong> also represents the state's vivid art and culture, where Madhubani paintings, pulsating folk music and dance forms like Bidesia and Jat-Jatin, and the magnificent Chhath Puja celebrations dazzle and thrill the senses. And if that's not enough, Bihar's ancient Buddhist and Jain temples stand tall, beckoning visitors from around the globe to explore and discover their secrets.</p>
+          
+        </div>
+        <div class="letter">
+          <h1>R</h1>
+            <img src="image5.jpg" alt="Lalitaditya Muktapida's temple in Karnataka">
+            <p>R - Bihar was once part of the powerful Pala Empire, which ruled much of eastern India and Bengal in the 8th to 12th centuries CE.</p>
+        </div>
+      </main>
+	<h1>Discover Bihar: A Journey Through Time</h1>
+	<div class="container">
+		<div class="letter">
+			<img src="Bodh.jpg" alt="Bodh Gaya" height="300" width= "300">
+			<h2>Bodh Gaya</h2>
+			<p>Bodh Gaya is a religious site and place of pilgrimage associated with the Mahabodhi Temple Complex in Gaya district in the Indian state of Bihar. It is famous as it is the place where Gautama Buddha is said to have obtained Enlightenment (Pali: bodhi) under what became known as the Bodhi Tree.</p>
+		</div>
+        <br>
+		<div class="letter">
+			<img src="nalanda.png" alt="Nalanda" height="300" weight="300">
+			<h2>Nalanda</h2>
+			<p>Nalanda is a ruined city in the northeastern Indian state of Bihar. 
+                It is located about 95 kilometres southeast of Patna and was a centre 
+                of learning from the fifth century CE to c. 1200 CE. Nalanda
+                was established as a Buddhist monastery in the 3rd century BCE 
+                and was an important center of Buddhist learning, attracting scholars 
+                from all over India and beyond.</p>
+            </div> 
+            <br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/239/300/300" alt="Mahavir Mandir">
+            <h2>Mahavir Mandir</h2>
+            <p>Mahavir Mandir is one of the holiest Hindu temples dedicated to Lord Hanuman, located in Patna, Bihar. It is one of the most visited temples in North India and attracts millions of devotees every year. The temple is known for fulfilling the wishes of its devotees and is considered to be a very powerful and auspicious place.</p>
+            </div> <br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/240/300/300" alt="Takht Sri Patna Sahib">
+            <h2>Takht Sri Patna Sahib</h2>
+            <p>Takht Sri Patna Sahib is one of the five Takhts of Sikhism and is located in the city of Patna, Bihar. It is the birthplace of the tenth Sikh Guru, Guru Gobind Singh Ji, and is considered to be one of the holiest places in Sikhism. The gurdwara is visited by thousands of devotees every day.</p>
+            </div><br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2>Vikramshila</h2>
+            <p>Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. It was established by King Dharmapala in the late 8th century and flourished for several centuries. The ruins of Vikramshila are located in Bhagalpur district of Bihar and are a popular tourist destination.</p>
+            </div><br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/242/300/300" alt="Patna Museum">
+            <h2>Patna Museum</h2>
+            <p>Patna Museum is a museum located in the city of Patna, Bihar. It was established in 1917 and has a rich collection of artifacts, including sculptures, coins, paintings, and textiles. The museum is known for its collection of artifacts related to the Maurya and Gupta empires, as well as its collection of Buddhist and Jain sculptures.</p>
+            </div><br>
+            <br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2>Vikramshila</h2>
+            <p>Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. It was established by King Dharmapala in the late 8th century and flourished for several centuries. The ruins of Vikramshila are located in Bhagalpur district of Bihar and are a popular tourist destination.</p>
+            </div> <br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2>Vikramshila</h2>
+             <p>Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. It was established by King Dharmapala in the late 8th century and flourished for several centuries. The ruins of Vikramshila are located in Bhagalpur district of Bihar and are a popular tourist destination.</p>
+            </div><br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2>Vikramshila</h2>
+            <p>Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. It was established by King Dharmapala in the late 8th century and flourished for several centuries. The ruins of Vikramshila are located in Bhagalpur district of Bihar and are a popular tourist destination.</p>
+            </div><br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2>Vikramshila</h2>
+            <p>Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. It was established by King Dharmapala in the late 8th century and flourished for several centuries. The ruins of Vikramshila are located in Bhagalpur district of Bihar and are a popular tourist destination.</p>
+            </div><br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2>Vikramshila</h2>
+            <p>Vikramshila was one of the two most important centers of Buddhist learning in India during the Pala Empire, along with Nalanda. It was established by King Dharmapala in the late 8th century and flourished for several centuries. The ruins of Vikramshila are located in Bhagalpur district of Bihar and are a popular tourist destination.</p>
+            </div><br>
+            <div class="letter">
+            <img src="https://picsum.photos/id/241/300/300" alt="Vikramshila">
+            <h2 </h2>  
+                <p></p>
+            </div><br> 
+            <br>
+            <br>
+            <legend></legend>        
+            </div>
+            <footer>
+                Made with ❤ by AASHUTOSH
+            </footer>
+            <br>
+            
+        </div>
+            <script>
+                
+                window.addEventListener('scroll', function() {
+                    // Calculate the offset value based on the current scroll position
+                    var offset = window.pageYOffset;
+                    // Apply the offset value to the content section using CSS transforms
+                    document.querySelector('main').style.transform = 'translateY(' + offset + 'px)';
+                  });
+            const letters = document.querySelectorAll(".letter");
+            let delay = 0;
+            letters.forEach(letter => {
+                const img = letter.querySelector("img");
+                const imgHeight = img.height;
+        
+                letter.addEventListener("mouseenter", () => {
+                    img.style.transform = `translateY(-${imgHeight/4}px)`;
+                    img.style.transition = "transform 0.5s ease";
+                    letter.style.boxShadow = "inset 20px 20px 60px #bebebe, inset -20px -20px 60px #ffffff";
+                    setTimeout(() => {
+                        img.style.transform = `translateY(0px)`;
+                        img.style.transition = "transform 0.5s ease";
+                    }, 500);
+                });
+        
+                letter.addEventListener("mouseleave", () => {
+                    img.style.transform = `translateY(0px)`;
+                    img.style.transition = "transform 0.5s
+                    ease";
+                    letter.style.boxShadow = "none";
+                    });
+                    letter.style.animationDelay = `${delay}s`;
+                    delay += 0.3;
+                });
+            </script>
+        </body>
+        </html>
