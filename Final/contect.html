@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Page</title>
+    <link rel="stylesheet" href="stplenev.css">
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+          }
+          
+          .image-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: auto;
+            opacity: 0.8;
+          }
+          
+          .text-left {
+            position: relative;
+            margin-top: 50px;
+            margin-left: 0;
+            padding: 20px;
+            width: 50%;
+            background-color: #fff;
+          }
+          
+          .text-left h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          
+          .text-left p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+          }
+          
+          .text-left:hover {
+            background-color: #f1f1f1;
+            transition: background-color 0.3s ease-in-out;
+          }
+          
+          .text-left h2:hover {
+            color: #f00;
+            transition: color 0.3s ease-in-out;
+          }
+          
+          .text-left p:hover {
+            color: #00f;
+            transition: color 0.3s ease-in-out;
+          }
+          
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul class="slider">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="tourism.html">Tourism</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li class="slider-bar"></li>
+      </ul>
+      <div class="letter-buttons"></div>
+    </nav>
+    <!-- HTML Content -->
+    <div class="container">
+        <img class="image-right" src="devlop.jpg" alt="Unsequenced Image">
+        <div class="text-left">
+          <h2>ABOUT</h2>
+          <p>Hello, I'm Aashutosh</p>
+          <br>
+          <section class="letter">
+            <div class="sticky-nav">
+              <ul>
+                <li><a href="https://www.example.com/blog">My Blog</a></li>
+                <li><a href="https://www.example.com/portfolio">My Portfolio</a></li>
+                <li><a href="https://www.linkedin.com/in/anshobrii">My LinkedIn Profile</a></li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>    
+      <div class="container">
+        <img class="text-left" src="giphy.webp" alt="Unsequenced Image">
+        <div class="image-right">
+          <br>
+         <br>
+         <br>
+         
+        </div>
+        
+      </div>
+          
+        
+    <!-- JavaScript -->
+    <script>
+        // Add hover effect to the image
+const image = document.querySelector('.image-right');
+image.addEventListener('mouseover', () => {
+  image.style.opacity = 1;
+});
+image.addEventListener('mouseout', () => {
+  image.style.opacity = 0.8;
+});
+
+// Add hover effect to the text
+const text = document.querySelector('.text-left');
+text.addEventListener('mouseover', () => {
+  text.style.backgroundColor = '#f1f1f1';
+  text.querySelector('h2').style.color = '#f00';
+  text.querySelector('p').style.color = '#00f';
+});
+text.addEventListener('mouseout', () => {
+  text.style.backgroundColor = '#fff';
+  text.querySelector('h2').style.color = '#000';
+  text.querySelector('p').style.color = '#000';
+});
+
+    </script>
+  </body>
+</html>

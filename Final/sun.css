@@ -1,0 +1,154 @@
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #3a7bd5;
+    background-image: linear-gradient(45deg, #3a7bd5, #3a6073);
+    overflow: hidden;
+  }
+  
+  #sun {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ffd800;
+    background-image: radial-gradient(#ffd800, #ffab00);
+    box-shadow: 0 0 50px 10px #ffd800;
+    animation: sun-rise 10s linear forwards;
+    z-index: 2;
+  }
+  
+  #mountain1 {
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    background-color: #b0c4de;
+    transform: skewX(-15deg);
+    animation: move-mountain1 20s linear forwards;
+    z-index: 1;
+  }
+  
+  #mountain2 {
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    background-color: #778899;
+    transform: skewX(-30deg);
+    animation: move-mountain2 30s linear forwards;
+    z-index: 0;
+  }
+  
+  #trees {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    width: 100%;
+    background-image: url('https://i.imgur.com/hzskj3q.png');
+    background-repeat: repeat-x;
+    animation: move-trees 30s linear forwards;
+    z-index: 3;
+  }
+  
+  #moon {
+    position: absolute;
+    top: 20%;
+    left: -20%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f5deb3;
+    background-image: radial-gradient(#f5deb3, #f0cfa0);
+    box-shadow: 0 0 20px 5px #f5deb3;
+    animation: moon-rise 20s linear forwards;
+    z-index: 4;
+  }
+  
+  #stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://i.imgur.com/HvopPdZ.png');
+    animation: stars-twinkle 5s linear infinite;
+    z-index: 5;
+    opacity: 0;
+  }
+  
+  #background.animated #stars {
+    opacity: 1;
+  }
+  
+  @keyframes sun-rise {
+    0% {
+      bottom: 0;
+      left: 0;
+   
+    }
+    100% {
+    top: 0;
+    right: 0;
+    transform: scale(2);
+    }
+    }
+    
+    @keyframes move-mountain1 {
+    0% {
+    left: -100%;
+    }
+    100% {
+    left: 100%;
+    }
+    }
+    
+    @keyframes move-mountain2 {
+    0% {
+    left: -100%;
+    }
+    100% {
+    left: 100%;
+    }
+    }
+    
+    @keyframes move-trees {
+    0% {
+    bottom: 0;
+    }
+    100% {
+    bottom: 30%;
+    }
+    }
+    
+    @keyframes moon-rise {
+    0% {
+    top: 20%;
+    left: -20%;
+    }
+    100% {
+    top: 0;
+    left: 80%;
+    transform: scale(2);
+    }
+    }
+    
+    @keyframes stars-twinkle {
+    0% {
+    opacity: 0;
+    }
+    50% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    }
+    }          

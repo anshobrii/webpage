@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BIHAR</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			overflow-x: hidden;
+		}
+
+		header {
+			background-color: #111;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			font-size: 5rem;
+			font-weight: bold;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		section {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			position: relative;
+		}
+
+		.letter {
+			font-size: 8rem;
+			font-weight: bold;
+			color: #fff;
+			text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			width: 10rem;
+			height: 10rem;
+			border-radius: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 5rem;
+			position: relative;
+			cursor: pointer;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			animation-duration: 0.5s;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-out;
+			animation-name: zoom-out;
+			transform-origin: center;
+		}
+
+		.letter:hover {
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		.letter.active {
+			animation-name: zoom-in;
+		}
+
+		.note {
+			font-size: 1.5rem;
+			color: #555;
+			text-align: center;
+			max-width: 50rem;
+			margin: 0 auto;
+			position: absolute;
+			bottom: 5%;
+			left: 50%;
+			transform: translateX(-50%);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.letter.active ~ .note {
+			opacity: 10;
+		}
+
+		.note img {
+			max-width: 100%;
+			max-height: 20rem;
+			margin-top: 2rem;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			border-radius: 1rem;
+		}
+
+		@keyframes zoom-out {
+			from {
+				transform: scale(1);
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			}
+			to {
+				transform: scale(0.8);
+				box-shadow: none;
+			}
+		}
+
+		@keyframes zoom-in {
+			from {
+				transform: scale(0.8);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		BIHAR
+	</header>
+	<section id="letter-b" class="letter">
+		B
+		<div class="note">
+			<p>Bihar is a state in eastern India. It is the thirteenth-largest state by population and twelfth-largest by area.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Patna_collage.png/800px-Patna_collage.png" alt="Patna collage">
+            </div>
+            </section>
+            <section id="letter-i" class="letter">
+            I
+            <div class="note">
+            <p>The word Bihar is derived from the Sanskrit and Pali word "vihara", meaning "abode". Bihar has been home to several ancient civilizations such as Magadha, Maurya, Gupta, Pala, and Mughal Empire.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nalanda_University_ruins_in_1915_%28cropped%29.jpg/800px-Nalanda_University_ruins_in_1915_%28cropped%29.jpg" alt="Nalanda University Ruins">
+            </div>
+            </section>
+            <section id="letter-h" class="letter">
+            H
+            <div class="note">
+            <p>The state of Bihar is the birthplace of two major religions, namely Buddhism and Jainism. It was also the center of the Indian independence movement, with leaders like Mahatma Gandhi, Dr. Rajendra Prasad, and Jayaprakash Narayan hailing from the state.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mahatma_Gandhi_with_Jawaharlal_Nehru_and_Bihar_CM_1963.jpg/800px-Mahatma_Gandhi_with_Jawaharlal_Nehru_and_Bihar_CM_1963.jpg" alt="Mahatma Gandhi with Jawaharlal Nehru and Bihar CM">
+            </div>
+            </section>
+            <section id="letter-a" class="letter">
+            A
+            <div class="note">
+            <p>Bihar is known for its rich culture, literature, and music. The famous classical singer Bharat Ratna Pandit Bhimsen Joshi hailed from Bihar. The state is also home to the famous Maithili and Bhojpuri languages.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bhojpuri_film_production_%282%29.jpg/800px-Bhojpuri_film_production_%282%29.jpg" alt="Bhojpuri film production">
+            </div>
+            </section>
+            <section id="letter-r" class="letter">
+                R
+                <div class="note">
+                <p>Bihar is known for its rich culture, literature, and music. The famous classical singer Bharat Ratna Pandit Bhimsen Joshi hailed from Bihar. The state is also home to the famous Maithili and Bhojpuri languages.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bhojpuri_film_production_%282%29.jpg/800px-Bhojpuri_film_production_%282%29.jpg" alt="Bhojpuri film production">
+                </div>
+                </section>
+            <script>
+                const letters = document.querySelectorAll('.letter');
+                let activeLetter = null;
+            
+                letters.forEach(letter => {
+                    letter.addEventListener('click', () => {
+                        if (activeLetter !== null) {
+                            activeLetter.classList.remove('active');
+                        }
+                        letter.classList.add('active');
+                        activeLetter = letter;
+                    });
+                });
+            
+                window.addEventListener('scroll', () => {
+                    let scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                    let windowHeight = window.innerHeight;
+            
+                    letters.forEach(letter => {
+                        let letterOffset = letter.offsetTop;
+                        if (scrollPos + windowHeight > letterOffset + 100) {
+                            letter.classList.add('active');
+                        }
+                    });
+                });
+            </script>
+        </body>
+        </html>
+         
