@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            #popup-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+              }
+              
+              #popup-container.show {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.5s ease, visibility 0s linear 0s;
+              }
+              
+              #popup {
+                background-color: white;
+                padding: 20px;
+                text-align: center;
+                max-width: 80%;
+                opacity: 0;
+                transform: translateY(-50px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+              }
+              
+              #popup.show {
+                opacity: 1;
+                transform: translateY(0);
+              }
+              
+              #popup img {
+                max-width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                transition: transform 0.5s ease;
+              }
+              
+              #popup img:hover {
+                transform: scale(1.1);
+              }
+              
+              #popup p {
+                margin-top: 20px;
+                font-size: 1.2rem;
+                color: #333;
+              }
+              
+              #close-button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 1rem;
+                transition: background-color 0.5s ease;
+              }
+              
+              #close-button:hover {
+                background-color: #0056b3;
+              }
+              
+        </style>
+    </head>
+    <body>
+        <div id="popup-container">
+            <div id="popup">
+              <img src="pop.jpg">
+              <p></p>
+              <a href="home.html" id="close-link" button id="close-button">WELCOME TO BIHAR</button></a>
+
+            </div>
+          </div>
+          
+        
+        <script src="" async defer></script>
+        <script>
+            // Get the popup container, popup, and close button
+var popupContainer = document.getElementById("popup-container");
+var popup = document.getElementById("popup");
+var closeButton = document.getElementById("close-button");
+var closeLink = document.getElementById('close-link');
+
+// Show the popup when the page loads
+window.onload = function() {
+  popupContainer.classList.add("show");
+  popup.classList.add("show");
+}
+
+// Close the popup when the close button is clicked
+closeButton.onclick = function() {
+  popupContainer.classList.remove("show");
+  popup.classList.remove("show");
+}
+
+            
+        </script>
+    </body>
+</html>
